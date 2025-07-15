@@ -1,4 +1,1 @@
-syntax on
-set hlsearch
-set autoindent
-set mouse=
+source ~/Code/jakegiorlando/dotfiles/.vimrc
