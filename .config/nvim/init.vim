@@ -1,1 +1,1 @@
-source ~/Code/jakegiorlando/dotfiles/.vimrc
+source ../../.vimrc
