@@ -15,7 +15,3 @@ alias nc-t='nc -t -zv'
 # view aliases
 alias aliases='grep -Ev "^[[:space:]]*(#|$)" ~/.aliases'
 
-# set vi and vim to nvim
-alias vi='nvim'
-
-alias vim='nvim'
