@@ -2,7 +2,7 @@
 syntax on
 
 " highlight search
-set hlsearch
+"set hlsearch
 
 " auto indent
 set autoindent
