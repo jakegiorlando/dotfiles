@@ -20,3 +20,4 @@ alias nc-t='nc -t -zv'
 
 # view aliases
 alias aliases='grep -Ev "^[[:space:]]*(#|$)" ~/.aliases'
+alias cdipa='cd /Users/ipa/jake'
