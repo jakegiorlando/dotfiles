@@ -18,8 +18,3 @@ alias nc-u='nc -u -zv'
 # netcat tcp hostname port
 alias nc-t='nc -t -zv'
 
-# view aliases
-alias aliases='grep -Ev "^[[:space:]]*(#|$)" ~/Code/jakegiorlando/dotfiles/.mac_aliases'
-alias cdipa='cd /Users/ipa/jake'
-alias cdbrew='cd /opt/homebrew'
-#alias mssh='osascript ${HOME}/scripts/ssh_grid.applescript'
