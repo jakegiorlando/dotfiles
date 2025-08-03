@@ -5,14 +5,17 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export EDITOR='vim'
 export VISUAL='vim'
 
+GH_USERNAME="jakegiorlando"
+
+
 # Get the aliases and functions
 #if [ -f ~/.zsh_aliases ]; then
 #	source ~/.zsh_aliases
 #fi
 
 
-if [ -f ${HOME}/Code/jakegiorlando/dotfiles/.mac_aliases ]; then
-	. ${HOME}/Code/jakegiorlando/dotfiles/.mac_aliases
+if [ -f ${HOME}/Code/${GH_USERNAME}/dotfiles/.mac_aliases ]; then
+	. ${HOME}/Code/${GH_USERNAME}/dotfiles/.mac_aliases
 fi
 
 if [ -f ${HOME}/.bsshrc ]; then
@@ -23,16 +26,16 @@ if [ -d "${HOME}/bin" ] ; then
         PATH="${HOME}/bin:$PATH"
 fi
 
-if [ -d ${HOME}/Code/jakegiorlando/mac-scripts ]; then
-        PATH="${HOME}/Code/jakegiorlando/mac-scripts:$PATH"
+if [ -d ${HOME}/Code/${GH_USERNAME}/mac-scripts ]; then
+        PATH="${HOME}/Code/${GH_USERNAME}/mac-scripts:$PATH"
 fi
 
-if [ -d ${HOME}/Code/jakegiorlando/bin ]; then
-        PATH="${HOME}/Code/jakegiorlando/bin:$PATH"
+if [ -d ${HOME}/Code/${GH_USERNAME}/bin ]; then
+        PATH="${HOME}/Code/${GH_USERNAME}/bin:$PATH"
 fi
 
-if [ -d ${HOME}/Code/jakegiorlando/sbin ]; then
-        PATH="${HOME}/Code/jakegiorlando/sbin:$PATH"
+if [ -d ${HOME}/Code/${GH_USERNAME}/sbin ]; then
+        PATH="${HOME}/Code/${GH_USERNAME}/sbin:$PATH"
 fi
 
 setopt share_history
