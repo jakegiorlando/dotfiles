@@ -1,4 +1,4 @@
-# .bashrc
+# ~/.bashrc
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -30,15 +30,17 @@ fi
 
 unset rc
 
+# add-id-to-agent.sh
 if [ -z "$SSH_AUTH_SOCK" ]; then
         eval "$(ssh-agent -s)" 1>/dev/null
 fi
 
-GITDIR="${HOME}/src"
-
 if [ -f $HOME/scripts/add-id-to-agent.sh ]; then
         $HOME/scripts/add-id-to-agent.sh 1>/dev/null
 fi
+
+# git
+GITDIR="${HOME}/src"
 
 if [ -d ${GITDIR}/jakegiorlando/bin ]; then
         export PATH="${GITDIR}/jakegiorlando/bin:$PATH"
@@ -52,8 +54,11 @@ if [ -f ${GITDIR}/jakegiorlando/dotfiles/.bash_aliases ]; then
         . ${GITDIR}/jakegiorlando/dotfiles/.bash_aliases
 fi
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+
+# use vim as default text editor
+export EDITOR="vim"
+export VISUAL="vim"
+
 
 # bash completion
 [[ -r /usr/share/bash-completion/bash_completion ]] && \
