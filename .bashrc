@@ -41,17 +41,17 @@ fi
 
 # git
 GITDIR="${HOME}/src"
-
-if [ -d ${GITDIR}/jakegiorlando/bin ]; then
-        export PATH="${GITDIR}/jakegiorlando/bin:$PATH"
+GITUSER="jakegiorlando"
+if [ -d ${GITDIR}/${GITUSER}/bin ]; then
+        export PATH="${GITDIR}/${GITUSER}/bin:$PATH"
 fi
 
-if [ -d ${GITDIR}/jakegiorlando/sbin ]; then
-        export PATH="${GITDIR}/jakegiorlando/sbin:$PATH"
+if [ -d ${GITDIR}/${GITUSER}/sbin ]; then
+        export PATH="${GITDIR}/${GITUSER}/sbin:$PATH"
 fi
 
-if [ -f ${GITDIR}/jakegiorlando/dotfiles/.bash_aliases ]; then
-        . ${GITDIR}/jakegiorlando/dotfiles/.bash_aliases
+if [ -f ${GITDIR}/${GITUSER}/dotfiles/.bash_aliases ]; then
+        . ${GITDIR}/${GITUSER}/dotfiles/.bash_aliases
 fi
 
 
