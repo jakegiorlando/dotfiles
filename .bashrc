@@ -59,6 +59,9 @@ fi
 export EDITOR="vim"
 export VISUAL="vim"
 
+if [ -f ${HOME}/.bash_aliases ]; then
+	. ${HOME}/.bash_aliases
+fi
 
 # bash completion
 [[ -r /usr/share/bash-completion/bash_completion ]] && \
