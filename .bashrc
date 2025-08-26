@@ -74,6 +74,15 @@ export LESS="$LESS R"
 # git bash prompt
 if [ -f "${GITDIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
-    source ${GITDIR}/magicmonty/bash-git-prompt/gitprompt.sh
+    . ${GITDIR}/magicmonty/bash-git-prompt/gitprompt.sh
 fi
+
+alias egrep='grep -E --color=auto'
+alias fgrep='grep -F --color=auto'
+alias grep='grep --color=auto'
+if ip --color=auto -V > /dev/null 2>/dev/null ; then
+    alias ip='ip --color=auto'
+fi
+
+alias ls='ls --color=auto'
 
