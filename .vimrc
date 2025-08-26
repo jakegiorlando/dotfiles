@@ -8,7 +8,10 @@ syntax on
 set autoindent
 
 " disable mouse (so selecting with mouse works normally)
-set mouse=
+"set mouse=
+
+" enable mouse
+set mouse=a
 
 " enable line wrapping
 set wrap
