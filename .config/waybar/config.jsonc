@@ -1,0 +1,145 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 8,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "temperature",
+    "battery",
+//    "custom/net",
+    "clock",
+    // Power button between clock and tray
+    "custom/power",
+    "tray"
+  ],
+
+  // ── Hyprland ────────────────────────────────────────────────────────────────
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "sort-by-number": true,
+    "format": "{name}"
+    //"on-click": "activate",
+    //"on-click": "hyprctl dispatch workspace {name}",
+    //"format-icons": {
+    //  "urgent": "",
+    //  "focused": "",
+    //  "default": ""
+    //}
+  },
+
+  "hyprland/window": {
+    "max-length": 60,
+    "tooltip": false,
+    "separate-outputs": false
+  },
+
+  // ── System modules (right side) ────────────────────────────────────────────
+  "backlight": {
+    "format": "{percent}% ",
+    "tooltip": false,
+    "interval": 2
+  },
+
+  // Speaker + Mic in the same module
+  "pulseaudio": {
+    "format": "{volume}% {icon}   {format_source}",
+    "format-bluetooth": "{volume}%  {icon}   {format_source}",
+    "format-muted": "   {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pavucontrol -t 4",
+    "scroll-step": 2
+  },
+
+  "cpu": {
+    "format": "{usage}% ",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "temperature": {
+    "format": "{temperatureC}°C ",
+    "critical-threshold": 85,
+    "interval": 3,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "{percentage}% ",
+    "interval": 5,
+    "tooltip": false
+  },
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{capacity}% {icon}",
+    "format-alt": "{time} left",
+    "format-time": "{H}:{m}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-icons": ["","","","",""],
+    "interval": 10
+},
+
+
+  // Active interfaces + IPv4s (from custom script below)
+  "custom/net": {
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/ifaces.sh",
+    "interval": 5,
+    "tooltip": false
+  },
+
+  // Click to show calendar (tooltip calendar already enabled)
+  "clock": {
+    "interval": 1,
+    "format": "{:%Y-%m-%d %I:%M %p}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
+//    "on-click": "gsimplecal"
+  },
+
+  // ── Power button with popup menu ───────────────────────────────────────────
+  // The menu pops on left-click and is defined in power_menu.xml
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "lock": "loginctl lock-session",
+      "sleep": "systemctl suspend",
+      "reboot": "systemctl reboot",
+      "poweroff": "systemctl poweroff",
+      "logout": "hyprctl dispatch exit"
+    }
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 6
+  }
+}
+
