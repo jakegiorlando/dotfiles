@@ -28,3 +28,6 @@ set breakat=\ \ ;:,!?
 " Automatically yank to system clipboard
 vnoremap y "+y
 nnoremap Y "+Y
+
+" macos only
+"set clipboard=unnamed
