@@ -86,3 +86,7 @@ fi
 
 alias ls='ls --color=auto'
 
+if grep -q "Arch Linux" /etc/os-release 2>/dev/null; then
+    PS1='[\u@\h \w]\$ '
+fi
+
