@@ -13,6 +13,10 @@ set autoindent
 " enable mouse
 set mouse=a
 
+" scroll wheel one line at a time in normal mode
+noremap <ScrollWheelUp> k
+noremap <ScrollWheelDown> j
+
 " enable line wrapping
 set wrap
 
@@ -25,9 +29,8 @@ set linebreak
 " chracters to break on
 set breakat=\ \ ;:,!?
 
-" Automatically yank to system clipboard
-vnoremap y "+y
-nnoremap Y "+Y
+set clipboard=unnamedplus
+
 
 " macos only
 "set clipboard=unnamed
