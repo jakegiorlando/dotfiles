@@ -30,15 +30,6 @@ fi
 
 unset rc
 
-# add-id-to-agent.sh
-if [ -z "$SSH_AUTH_SOCK" ]; then
-        eval "$(ssh-agent -s)" 1>/dev/null
-fi
-
-if [ -f $HOME/scripts/add-id-to-agent.sh ]; then
-        $HOME/scripts/add-id-to-agent.sh 1>/dev/null
-fi
-
 # git
 GITDIR="${HOME}/src"
 GITUSER="jakegiorlando"
@@ -90,3 +81,19 @@ if grep -q "Arch Linux" /etc/os-release 2>/dev/null; then
     PS1='[\u@\h \w]\$ '
 fi
 
+
+# >>> persistent ssh-agent setup >>>
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" 1>/dev/null
+fi
+
+if [ -f "$HOME/scripts/add-id-to-agent.sh" ]; then
+    "$HOME/scripts/add-id-to-agent.sh" 1>/dev/null
+fi
+# <<< persistent ssh-agent setup <<<
+
+export GTK_THEME=Adwaita:dark
+
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+
+export QT_STYLE_OVERRIDE=Adwaita-Dark
