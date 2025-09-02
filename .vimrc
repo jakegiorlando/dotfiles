@@ -29,8 +29,8 @@ set linebreak
 " chracters to break on
 set breakat=\ \ ;:,!?
 
-set clipboard=unnamedplus
+" clipboard syncs with system
+"set clipboard=unnamedplus
 
-
-" macos only
+" clipboard syncs with system - macos only
 "set clipboard=unnamed

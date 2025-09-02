@@ -41,6 +41,9 @@ if [ -d ${GITDIR}/${GITUSER}/sbin ]; then
         export PATH="${GITDIR}/${GITUSER}/sbin:$PATH"
 fi
 
+if [ -d ${GITDIR}/${GITUSER}/scripts ]; then
+        export PATH="${GITDIR}/${GITUSER}/scripts:$PATH"
+fi
 if [ -f ${GITDIR}/${GITUSER}/dotfiles/.bash_aliases ]; then
         . ${GITDIR}/${GITUSER}/dotfiles/.bash_aliases
 fi
@@ -97,3 +100,17 @@ export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 
 export QT_STYLE_OVERRIDE=Adwaita-Dark
+
+
+# tat: tmux attach
+function tat {
+  name=$(basename `pwd` | sed -e 's/\.//g')
+
+  if tmux ls 2>&1 | grep "$name"; then
+    tmux attach -t "$name"
+  elif [ -f .envrc ]; then
+    direnv exec / tmux new-session -s "$name"
+  else
+    tmux new-session -s "$name"
+  fi
+}
