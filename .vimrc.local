@@ -1,0 +1,3 @@
+" put this file in home directory in file ~/.vimrc
+source ~/src/jakegiorlando/dotfiles/.vimrc
+

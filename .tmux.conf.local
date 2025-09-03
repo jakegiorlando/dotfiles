@@ -1,0 +1,2 @@
+# copy this file to home with name ~/.tmux.conf
+source-file ~/src/jakegiorlando/dotfiles/.tmux.conf

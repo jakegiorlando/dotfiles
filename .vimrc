@@ -34,3 +34,9 @@ set breakat=\ \ ;:,!?
 
 " clipboard syncs with system - macos only
 "set clipboard=unnamed
+
+" Ctrl-Y → yank to system clipboard
+vnoremap <C-y> "+y
+
+" Ctrl-D → cut (yank + delete) to system clipboard
+vnoremap <C-d> "+d
