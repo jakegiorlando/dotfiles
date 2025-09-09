@@ -1,0 +1,23 @@
+# sudo works with aliases
+alias sudo='sudo '
+
+# neofetch is fastfetch
+alias neofetch='fastfetch'
+
+# cd into icloud drive directory
+alias cdi='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs'
+
+# cd into ipa directory
+alias cdipa='cd /Users/ipa'
+
+# output file without comments
+sc() {
+	grep ^[^#] $1
+}
+
+# netcat udp hostname port
+alias nc-u='nc -u -zv'
+
+# netcat tcp hostname port
+alias nc-t='nc -t -zv'
+
