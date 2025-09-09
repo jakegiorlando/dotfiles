@@ -40,3 +40,7 @@ vnoremap <C-y> "+y
 
 " Ctrl-D → cut (yank + delete) to system clipboard
 vnoremap <C-d> "+d
+
+" Toggle mouse on/off with Ctrl-M in normal mode
+nnoremap <C-m> :if &mouse == '' \| set mouse=a \| echo "Mouse ON" \| else \| set mouse= \| echo "Mouse OFF" \| endif<CR>
+
