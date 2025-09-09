@@ -84,33 +84,15 @@ if grep -q "Arch Linux" /etc/os-release 2>/dev/null; then
     PS1='[\u@\h \w]\$ '
 fi
 
-
-# >>> persistent ssh-agent setup >>>
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -s)" 1>/dev/null
-fi
-
-if [ -f "$HOME/scripts/add-id-to-agent.sh" ]; then
-    "$HOME/scripts/add-id-to-agent.sh" 1>/dev/null
-fi
-# <<< persistent ssh-agent setup <<<
-
 export GTK_THEME=Adwaita:dark
 
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 
+# ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-# tat: tmux attach
-function tat {
-  name=$(basename `pwd` | sed -e 's/\.//g')
+# ssh-tpm-agent
+#export SSH_AUTH_SOCK="$(ssh-tpm-agent --print-socket)"
 
-  if tmux ls 2>&1 | grep "$name"; then
-    tmux attach -t "$name"
-  elif [ -f .envrc ]; then
-    direnv exec / tmux new-session -s "$name"
-  else
-    tmux new-session -s "$name"
-  fi
-}
