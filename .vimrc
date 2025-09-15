@@ -11,7 +11,7 @@ set autoindent
 "set mouse=
 
 " enable mouse
-set mouse=a
+set mouse=
 
 " scroll wheel one line at a time in normal mode
 noremap <ScrollWheelUp> k

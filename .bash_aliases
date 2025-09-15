@@ -14,3 +14,4 @@ alias nc-t='nc -t -zv'
 
 # gparted works with sudo
 alias gparted='sudo -E gparted'
+

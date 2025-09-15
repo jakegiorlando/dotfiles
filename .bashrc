@@ -30,6 +30,11 @@ fi
 
 unset rc
 
+if [ -f ${HOME}/.bash_aliases ]; then
+	. ${HOME}/.bash_aliases
+fi
+
+
 # git
 GITDIR="${HOME}/src"
 GITUSER="jakegiorlando"
