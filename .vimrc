@@ -11,7 +11,10 @@ set autoindent
 "set mouse=
 
 " enable mouse
-set mouse=
+"set mouse=a
+
+" Toggle mouse on/off with Ctrl-M in normal mode
+"nnoremap <C-m> :if &mouse == '' \| set mouse=a \| echo "Mouse ON" \| else \| set mouse= \| echo "Mouse OFF" \| endif<CR>
 
 " scroll wheel one line at a time in normal mode
 noremap <ScrollWheelUp> k
@@ -41,6 +44,33 @@ vnoremap <C-y> "+y
 " Ctrl-D → cut (yank + delete) to system clipboard
 vnoremap <C-d> "+d
 
-" Toggle mouse on/off with Ctrl-M in normal mode
-nnoremap <C-m> :if &mouse == '' \| set mouse=a \| echo "Mouse ON" \| else \| set mouse= \| echo "Mouse OFF" \| endif<CR>
+" Save toggle state in a file
+let s:mouse_state_file = expand('~/.vim_mouse_state')
+
+" Restore mouse state at startup
+if filereadable(s:mouse_state_file)
+    let s:state = get(readfile(s:mouse_state_file, '', 1), 0, '')
+    if s:state ==# 'on'
+        set mouse=a
+    else
+        set mouse=
+    endif
+endif
+
+" Toggle mouse and persist state
+function! s:ToggleMouse() abort
+    if &mouse == ''
+        set mouse=a
+        echo "Mouse ON"
+        call writefile(['on'], s:mouse_state_file)
+    else
+        set mouse=
+        echo "Mouse OFF"
+        call writefile(['off'], s:mouse_state_file)
+    endif
+endfunction
+
+" Toggle with Ctrl-M in normal mode
+nnoremap <C-m> :call <SID>ToggleMouse()<CR>
+
 
