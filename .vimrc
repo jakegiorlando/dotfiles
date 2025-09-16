@@ -71,6 +71,7 @@ function! s:ToggleMouse() abort
 endfunction
 
 " Toggle with Ctrl-M in normal mode
-nnoremap <C-m> :call <SID>ToggleMouse()<CR>
-
+let mapleader=" "
+nnoremap <Leader>m :call <SID>ToggleMouse()<CR>
+xnoremap <Leader>m :<C-u>call <SID>ToggleMouse()<CR>
 
