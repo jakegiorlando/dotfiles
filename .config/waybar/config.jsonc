@@ -12,6 +12,8 @@
     "hyprland/window"
   ],
   "modules-right": [
+//    "network",
+//    "bluetooth",
     "backlight",
     "pulseaudio",
     "cpu",
@@ -48,6 +50,21 @@
   },
 
   // ── System modules (right side) ────────────────────────────────────────────
+  "network": {
+  "format": "{ifname} {signalStrength}%",
+  "format-wifi": "  {essid} ({signalStrength}%)",
+  "format-ethernet": "  {ifname}",
+  "format-disconnected": "睊 Disconnected",
+  "tooltip-format": "{ifname} via {gwaddr}"
+  },
+
+  "bluetooth": {
+  "format": " {status}",
+  "format-connected": " {device_alias}",
+  "tooltip-format": "{controller_alias}\n{device_enumerate}",
+  "on-click": "rfkill toggle bluetooth"
+  },
+
   "backlight": {
     "format": "{percent}% ",
     "tooltip": false,
@@ -78,7 +95,8 @@
   "cpu": {
     "format": "{usage}% ",
     "interval": 2,
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "kitty -e btop"
   },
 
   "temperature": {
@@ -91,12 +109,13 @@
   "memory": {
     "format": "{percentage}% ",
     "interval": 5,
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "kitty -e btop"
   },
   "battery": {
     "states": { "warning": 30, "critical": 15 },
     "format": "{capacity}% {icon}",
-    "format-alt": "{time} left",
+//    "format-alt": "{time} left",
     "format-time": "{H}:{m}",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
@@ -139,7 +158,7 @@
 
   "tray": {
     "icon-size": 18,
-    "spacing": 6
+    "spacing": 16
   }
 }
 

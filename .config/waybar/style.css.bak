@@ -1,0 +1,144 @@
+/* ───────────────── Global defaults ───────────────── */
+* {
+  font-family:
+    "CaskaydiaCove Nerd Font",
+    "CaskaydiaCove Nerd Font Mono",
+    "CaskaydiaCove Nerd Font Propo",
+    "Font Awesome 6 Free",
+    "Font Awesome 6 Brands",
+    "Material Design Icons",
+    system-ui, sans-serif;
+  font-size: 13px;
+  margin: 0;
+}
+
+window#waybar {
+  background: rgba(28, 28, 33, 0.90);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #e6e6e6;
+}
+
+/* ─────────────── Module spacing ─────────────── */
+#workspaces,
+#hyprland-window,
+#backlight,
+#pulseaudio,
+#cpu,
+#temperature,
+#memory,
+#battery,
+#custom-net,
+#clock,
+#custom-power,
+#tray {
+  padding: 4px 8px;
+  margin: 0;
+  min-height: 16px;
+}
+
+/* Subtle separators between modules (right section) */
+#backlight,
+#pulseaudio,
+#cpu,
+#temperature,
+#memory,
+#battery,
+#custom-net,
+#clock,
+#custom-power,
+#tray {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Force reliable icon rendering */
+#pulseaudio,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#clock,
+#custom-power,
+#tray,
+#custom-net,
+#hyprland-window,
+#workspaces {
+  font-family:
+    "Font Awesome 6 Free",
+    "CaskaydiaCove Nerd Font",
+    "Material Design Icons",
+    system-ui, sans-serif;
+  font-weight: 900;
+}
+
+/* ───────────────── Workspaces ───────────────── */
+#workspaces button {
+  padding: 0 10px;
+  margin: 0 2px;
+  background: transparent;
+  color: #cfcfcf;
+  border: none;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+#workspaces button.urgent {
+  background: rgba(255, 64, 64, 0.28);
+  color: #ffffff;
+}
+
+/* ───────────────── Center window title ───────────────── */
+#hyprland-window { font-weight: 600; }
+#hyprland-window.empty { color: #9aa0a6; }
+
+/* Emphasize time a bit */
+#clock { font-weight: 700; }
+
+/* Battery state cues */
+#battery.warning { color: #ffb300; }
+#battery.critical { color: #ff6b6b; }
+
+/* Tray */
+#tray { padding-right: 6px; }
+#tray > .passive { opacity: 0.7; }
+#tray > .needs-attention {
+  background: rgba(255, 64, 64, 0.28);
+  border-radius: 3px;
+}
+
+/* Power button hover */
+#custom-power:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+/* Popup menu styling (Waybar menu) */
+menu {
+  background: rgba(28, 28, 33, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  color: #e6e6e6;
+}
+menuitem {
+  padding: 6px 12px;
+}
+menuitem:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 6px;
+}
+
+/* Tooltips */
+tooltip {
+  background: rgba(28, 28, 33, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+tooltip label { color: #e6e6e6; }
+

@@ -1,4 +1,4 @@
-/* ───────────────── Global defaults ───────────────── */
+/* ─────────────── Global defaults ─────────────── */
 * {
   font-family:
     "CaskaydiaCove Nerd Font",
@@ -8,13 +8,14 @@
     "Font Awesome 6 Brands",
     "Material Design Icons",
     system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   margin: 0;
 }
 
 window#waybar {
-  background: rgba(28, 28, 33, 0.90);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  border: none;
+  margin: 6px;
   color: #e6e6e6;
 }
 
@@ -32,46 +33,12 @@ window#waybar {
 #custom-power,
 #tray {
   padding: 4px 8px;
-  margin: 0;
-  min-height: 16px;
+  margin: 0 4px;
+  border-radius: 0;   /* remove rounded backgrounds */
+  background: transparent;
 }
 
-/* Subtle separators between modules (right section) */
-#backlight,
-#pulseaudio,
-#cpu,
-#temperature,
-#memory,
-#battery,
-#custom-net,
-#clock,
-#custom-power,
-#tray {
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Force reliable icon rendering */
-#pulseaudio,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#clock,
-#custom-power,
-#tray,
-#custom-net,
-#hyprland-window,
-#workspaces {
-  font-family:
-    "Font Awesome 6 Free",
-    "CaskaydiaCove Nerd Font",
-    "Material Design Icons",
-    system-ui, sans-serif;
-  font-weight: 900;
-}
-
-/* ───────────────── Workspaces ───────────────── */
+/* ─────────────── Workspaces ─────────────── */
 #workspaces button {
   padding: 0 10px;
   margin: 0 2px;
@@ -79,22 +46,19 @@ window#waybar {
   color: #cfcfcf;
   border: none;
 }
-
 #workspaces button:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-
 #workspaces button.active {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
-
 #workspaces button.urgent {
   background: rgba(255, 64, 64, 0.28);
   color: #ffffff;
 }
 
-/* ───────────────── Center window title ───────────────── */
+/* ─────────────── Center window title ─────────────── */
 #hyprland-window { font-weight: 600; }
 #hyprland-window.empty { color: #9aa0a6; }
 
@@ -112,11 +76,19 @@ window#waybar {
   background: rgba(255, 64, 64, 0.28);
   border-radius: 3px;
 }
-
+#custom-power {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 8px;
+  padding-left: 8px;
+  background: transparent;
+}
 /* Power button hover */
 #custom-power:hover {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 6px;
+  margin: 0;
+  padding: 4px 8px;
 }
 
 /* Popup menu styling (Waybar menu) */
@@ -126,9 +98,7 @@ menu {
   border-radius: 8px;
   color: #e6e6e6;
 }
-menuitem {
-  padding: 6px 12px;
-}
+menuitem { padding: 6px 12px; }
 menuitem:hover {
   background: rgba(255, 255, 255, 0.10);
   border-radius: 6px;
