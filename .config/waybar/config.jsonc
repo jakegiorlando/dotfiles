@@ -34,13 +34,6 @@
     "warp-on-scroll": false,
     "sort-by-number": true,
     "format": "{name}"
-    //"on-click": "activate",
-    //"on-click": "hyprctl dispatch workspace {name}",
-    //"format-icons": {
-    //  "urgent": "",
-    //  "focused": "",
-    //  "default": ""
-    //}
   },
 
   "hyprland/window": {
@@ -71,7 +64,6 @@
     "interval": 2
   },
 
-  // Speaker + Mic in the same module
   "pulseaudio": {
     "format": "{volume}% {icon}   {format_source}",
     "format-bluetooth": "{volume}%  {icon}   {format_source}",
@@ -95,7 +87,8 @@
   "cpu": {
     "format": "{usage}% ",
     "interval": 2,
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{avg_frequency}",
     "on-click": "kitty -e btop"
   },
 
@@ -109,13 +102,13 @@
   "memory": {
     "format": "{percentage}% ",
     "interval": 5,
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}G/{total:0.1f}G",
     "on-click": "kitty -e btop"
   },
   "battery": {
     "states": { "warning": 30, "critical": 15 },
     "format": "{capacity}% {icon}",
-//    "format-alt": "{time} left",
     "format-time": "{H}:{m}",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
@@ -137,7 +130,6 @@
     "interval": 1,
     "format": "{:%Y-%m-%d %I:%M %p}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>"
-//    "on-click": "gsimplecal"
   },
 
   // ── Power button with popup menu ───────────────────────────────────────────

@@ -13,10 +13,12 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: #000000; /* solid black */
   border: none;
   margin: 6px;
+  padding: 0 10px;
   color: #e6e6e6;
+  border-radius: 0; /* no curves */
 }
 
 /* ─────────────── Module spacing ─────────────── */
@@ -34,8 +36,8 @@ window#waybar {
 #tray {
   padding: 4px 8px;
   margin: 0 4px;
-  border-radius: 0;   /* remove rounded backgrounds */
-  background: transparent;
+  border-radius: 0;
+  background: transparent; /* keep modules transparent */
 }
 
 /* ─────────────── Workspaces ─────────────── */
@@ -76,6 +78,8 @@ window#waybar {
   background: rgba(255, 64, 64, 0.28);
   border-radius: 3px;
 }
+
+/* Power button */
 #custom-power {
   margin-right: 0;
   margin-left: 0;
@@ -83,11 +87,8 @@ window#waybar {
   padding-left: 8px;
   background: transparent;
 }
-/* Power button hover */
 #custom-power:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  margin: 0;
   padding: 4px 8px;
 }
 
@@ -95,7 +96,7 @@ window#waybar {
 menu {
   background: rgba(28, 28, 33, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 8px;
+  border-radius: 6px;
   color: #e6e6e6;
 }
 menuitem { padding: 6px 12px; }
