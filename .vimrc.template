@@ -1,0 +1,3 @@
+" cp ~/src/jakegiorlando/dotfiles/.vimrc.template ~/.vimrc
+source ~/src/jakegiorlando/dotfiles/.vimrc
+

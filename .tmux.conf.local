@@ -1,2 +1,0 @@
-# run 'cp ~/src/jakegiorlando/dotfiles/.tmux.conf.local ~/.tmux.conf'
-source-file ~/src/jakegiorlando/dotfiles/.tmux.conf

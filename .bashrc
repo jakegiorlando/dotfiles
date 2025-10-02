@@ -27,6 +27,8 @@ fi
 
 unset rc
 
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
+
 [[ -f ${HOME}/.bash_aliases ]] && . ${HOME}/.bash_aliases
 
 # git
@@ -74,7 +76,3 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #export SSH_AUTH_SOCK="$(ssh-tpm-agent --print-socket)"
 
 export PATH
-# <<<<<<<<<<<<<<<<<<<<<<<<< LOCAL >>>>>>>>>>>>>>>>>>>>>>>>>
-
-# <<<<<<<<<<<<<<<<<<<<<<< END LOCAL >>>>>>>>>>>>>>>>>>>>>>>
-
