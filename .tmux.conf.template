@@ -1,2 +1,0 @@
-# cp ~/src/jakegiorlando/dotfiles/.tmux.conf.template ~/.tmux.conf
-source-file ~/src/jakegiorlando/dotfiles/.tmux.conf
