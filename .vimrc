@@ -46,7 +46,7 @@ set laststatus=2
 set statusline+=%F
 
 " add date and time to statusline
-set statusline+=%=%{strftime('%Y-%m-%d\ %H:%M')}
+set statusline+=%=%{strftime('%H:%M\ %Y-%m-%d')}
 
 "###########################################################
 "### TOGGLE MOUSE WITH SPACE-M IN NORMAL AND VISUAL MODE ###
