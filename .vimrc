@@ -1,8 +1,8 @@
 " ~/src/jakegiorlando/dotfiles/.vimrc
 
-"""""""""""
-" general "
-"""""""""""
+"###############
+"### GENERAL ###
+"###############
 
 " enable syntax highlighting
 syntax on
@@ -35,9 +35,9 @@ vnoremap <C-y> "+y
 " Ctrl-D → cut (yank + delete) to system clipboard
 vnoremap <C-d> "+d
 
-""""""""""""""
-" statusline "
-""""""""""""""
+"##################
+"### STATUSLINE ###
+"##################
 
 " always display statusline
 set laststatus=2
@@ -48,14 +48,14 @@ set statusline+=%F
 " add date and time to statusline
 set statusline+=%=%{strftime('%Y-%m-%d\ %H:%M')}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" toggle mouse with space + m in normal and visual mode "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"###########################################################
+"### TOGGLE MOUSE WITH SPACE-M IN NORMAL AND VISUAL MODE ###
+"###########################################################
 
-" Save toggle state in a file
+" save toggle state in a file
 let s:mouse_state_file = expand('~/.vim_mouse_state')
 
-" Restore mouse state at startup
+" restore mouse state at startup
 if filereadable(s:mouse_state_file)
     let s:state = get(readfile(s:mouse_state_file, '', 1), 0, '')
     if s:state ==# 'on'
@@ -65,7 +65,7 @@ if filereadable(s:mouse_state_file)
     endif
 endif
 
-" Toggle mouse and persist state
+" toggle mouse and persist state
 function! s:ToggleMouse() abort
     if &mouse == ''
         set mouse=a
@@ -78,8 +78,10 @@ function! s:ToggleMouse() abort
     endif
 endfunction
 
-" Toggle with Ctrl-M in normal mode
+" set mapleader to space
 let mapleader=" "
+
+" toggle with space-m in normal and visual mode
 nnoremap <Leader>m :call <SID>ToggleMouse()<CR>
 xnoremap <Leader>m :<C-u>call <SID>ToggleMouse()<CR>
 

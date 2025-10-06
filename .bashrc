@@ -94,8 +94,8 @@ fi
 unset rc
 
 [[ -f ${HOME}/.bash_aliases ]] && . ${HOME}/.bash_aliases
-[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
 [[ -f $GITDIR/$GITUSER/dotfiles/.bash_aliases ]] && . "$GITDIR/$GITUSER/dotfiles/.bash_aliases"
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
 
 #########################
 ### FINAL PATH EXPORT ###

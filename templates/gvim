@@ -1,0 +1,3 @@
+" RUN THIS COMMAND: cp ~/src/jakegiorlando/dotfiles/templates/gvim ~/.gvimrc
+
+source ~/src/jakegiorlando/dotfiles/.gvimrc

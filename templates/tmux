@@ -1,0 +1,2 @@
+# RUN THIS COMMAND: cp ~/src/jakegiorlando/dotfiles/templates/tmux ~/.tmux.conf
+source-file ~/src/jakegiorlando/dotfiles/.tmux.conf

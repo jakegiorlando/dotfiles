@@ -1,0 +1,4 @@
+" RUN THIS COMMAND: cp ~/src/jakegiorlando/dotfiles/templates/vim ~/.vimrc
+
+source ~/src/jakegiorlando/dotfiles/.vimrc
+
