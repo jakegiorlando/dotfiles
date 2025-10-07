@@ -62,10 +62,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 ### PROMPT ###
 ##############
 
-# Arch Linux specific prompt
-if grep -q "Arch Linux" /etc/os-release 2>/dev/null; then
-    PS1='[\u@\h \w]\$ '
-fi
+PS1='[\u@\h \w]\$ '
 
 ###############
 ### ALIASES ###
