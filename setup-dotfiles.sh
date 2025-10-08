@@ -13,9 +13,18 @@ check_and_copy() {
             if cmp -s "$template" "$target"; then
                 echo "$(basename "$target") already set"
             else
-                mv "$target" "${target}.local"
+                local backup="${target}.local"
+                if [[ -f "$backup" ]]; then
+                    read -rp "$(basename "$backup") already exists. Replace it? [y/N] " answer
+                    case "$answer" in
+                        [Yy]*) mv -f "$target" "$backup" ;;
+                        *) echo "Skipped updating $(basename "$target")"; return ;;
+                    esac
+                else
+                    mv "$target" "$backup"
+                fi
                 cp "$template" "$target"
-                echo "$(basename "$target") updated (old saved as $(basename "${target}.local"))"
+                echo "$(basename "$target") updated (old saved as $(basename "${backup}"))"
             fi
         else
             cp "$template" "$target"
