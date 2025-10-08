@@ -1,5 +1,10 @@
 " ~/src/jakegiorlando/dotfiles/.vimrc
 
+" source local vimrc
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
 "###############
 "### GENERAL ###
 "###############
