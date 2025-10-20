@@ -49,8 +49,8 @@ export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 
-# LESS with ANSI colors
-export LESS="$LESS R"
+# LESS with ANSI colors and don't quit on scroll/arrow keys
+export LESS="$LESS -R -+E"
 
 # SSH agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
