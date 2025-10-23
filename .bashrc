@@ -24,11 +24,11 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 
 # Git-related paths
-GITDIR="${HOME}/src"
-GITUSER="jakegiorlando"
-[[ -d $GITDIR/$GITUSER/bin ]] && PATH="$GITDIR/$GITUSER/bin:$PATH"
-[[ -d $GITDIR/$GITUSER/sbin ]] && PATH="$GITDIR/$GITUSER/sbin:$PATH"
-[[ -d $GITDIR/$GITUSER/scripts ]] && PATH="$GITDIR/$GITUSER/scripts:$PATH"
+GIT_DIR="${HOME}/src"
+GIT_USR="jakegiorlando"
+[[ -d ${GIT_DIR}/${GIT_USR}/bin ]] && PATH="${GIT_DIR}/${GIT_USR}/bin:$PATH"
+[[ -d ${GIT_DIR}/${GIT_USR}/sbin ]] && PATH="${GIT_DIR}/${GIT_USR}/sbin:$PATH"
+[[ -d ${GIT_DIR}/${GIT_USR}/scripts ]] && PATH="${GIT_DIR}/${GIT_USR}/scripts:$PATH"
 
 ###################
 ### ENVIRONMENT ###
@@ -42,7 +42,7 @@ export VISUAL="vim"
 # export SYSTEMD_PAGER=
 
 # Git prompt
-[[ -f "$GITDIR/magicmonty/bash-git-prompt/gitprompt.sh" ]] && GIT_PROMPT_ONLY_IN_REPO=1 && . "$GITDIR/magicmonty/bash-git-prompt/gitprompt.sh"
+[[ -f "${GIT_DIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]] && GIT_PROMPT_ONLY_IN_REPO=1 && . ${GIT_DIR}/magicmonty/bash-git-prompt/gitprompt.sh
 
 # GTK/QT themes
 export GTK_THEME=Adwaita:dark
@@ -50,10 +50,10 @@ export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 
 # LESS with ANSI colors and don't quit on scroll/arrow keys
-export LESS="$LESS -R -+E"
+export LESS="${LESS} -R -+E"
 
 # SSH agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # ssh-tpm-agent (optional)
 # export SSH_AUTH_SOCK="$(ssh-tpm-agent --print-socket)"
@@ -91,7 +91,7 @@ fi
 unset rc
 
 [[ -f ${HOME}/.bash_aliases ]] && . ${HOME}/.bash_aliases
-[[ -f $GITDIR/$GITUSER/dotfiles/.bash_aliases ]] && . "$GITDIR/$GITUSER/dotfiles/.bash_aliases"
+[[ -f ${GIT_DIR}/${GIT_USR}/dotfiles/.bash_aliases ]] && . ${GIT_DIR}/${GIT_USR}/dotfiles/.bash_aliases
 [[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
 
 #########################

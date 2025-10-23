@@ -10,5 +10,8 @@ alias nc-u='nc -u -zv'
 # netcat tcp hostname port
 alias nc-t='nc -t -zv'
 
+# l is ls -l
+alias l='ls -l'
+
 # la is ls -la
 alias la='ls -la'
