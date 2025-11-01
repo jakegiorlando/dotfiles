@@ -1,4 +1,4 @@
-" RUN THIS COMMAND: cp ~/src/jakegiorlando/dotfiles/templates/vim ~/.vimrc
+" RUN THIS COMMAND: cp ~/git/github.com/jakegiorlando/dotfiles/templates/vim ~/.vimrc
 
-source ~/src/jakegiorlando/dotfiles/.vimrc
+source ~/git/github.com/jakegiorlando/dotfiles/.vimrc
 

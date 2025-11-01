@@ -24,7 +24,7 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 
 # Git-related paths
-GIT_DIR="${HOME}/src"
+GIT_DIR="${HOME}/git/github.com"
 GIT_USR="jakegiorlando"
 [[ -d ${GIT_DIR}/${GIT_USR}/bin ]] && PATH="${GIT_DIR}/${GIT_USR}/bin:$PATH"
 [[ -d ${GIT_DIR}/${GIT_USR}/sbin ]] && PATH="${GIT_DIR}/${GIT_USR}/sbin:$PATH"

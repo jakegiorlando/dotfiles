@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-TEMPLATE_DIR="$HOME/src/jakegiorlando/dotfiles/templates"
+TEMPLATE_DIR="$HOME/git/github.com/jakegiorlando/dotfiles/templates"
 
 check_and_copy() {
     local cmd="$1"
@@ -13,7 +13,7 @@ check_and_copy() {
             if cmp -s "$template" "$target"; then
                 echo "$(basename "$target") already set"
             else
-                local backup="${target}.local"
+                local backup="${target}.bak"
                 if [[ -f "$backup" ]]; then
                     read -rp "$(basename "$backup") already exists. Replace it? [y/N] " answer
                     case "$answer" in
