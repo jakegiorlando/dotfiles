@@ -1,0 +1,8 @@
+# pick H.264 video + AAC audio so no re‑encode is needed
+-f "bv*[vcodec^=avc1][ext=mp4]+ba[acodec^=mp4a][ext=m4a]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"
+
+# just merge/remux, don’t re‑encode
+--merge-output-format mp4           # or --remux-video mp4
+--postprocessor-args "ffmpeg:-movflags +faststart -c copy"
+
+-o ~/yt-dlp/video/%(title).100s.%(ext)s
