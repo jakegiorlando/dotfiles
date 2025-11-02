@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 TEMPLATE_DIR="$HOME/git/github.com/jakegiorlando/dotfiles/templates"
