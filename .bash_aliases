@@ -18,3 +18,9 @@ alias ll='ls -l'
 
 # la is ls -la
 alias la='ls -la'
+
+# lat is ls -lat
+alias lat='ls -lat'
+
+# lt is ls -lt
+alias lt='ls -lt'
