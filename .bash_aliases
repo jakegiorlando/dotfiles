@@ -28,5 +28,10 @@ alias latr='ls -latr'
 # lt is ls -lt
 alias lt='ls -lt'
 
+<<<<<<< HEAD
 # pacman list packages by time
 alias paclog='expac --timefmt="%Y-%m-%d %T" "%l\t%n" | sort | less +G'
+=======
+# cd to git
+alias cdgit='cd ~/git/github.com/jakegiorlando'
+>>>>>>> 08a43fd27acbc5f1d7a573b20b7196e902f88ba1
