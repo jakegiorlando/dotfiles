@@ -40,6 +40,11 @@ vnoremap <C-y> "+y
 " Ctrl-D → cut (yank + delete) to system clipboard
 vnoremap <C-d> "+d
 
+" tabs and spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 "##################
 "### STATUSLINE ###
 "##################

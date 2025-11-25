@@ -27,3 +27,6 @@ alias latr='ls -latr'
 
 # lt is ls -lt
 alias lt='ls -lt'
+
+# pacman list packages by time
+alias paclog='expac --timefmt="%Y-%m-%d %T" "%l\t%n" | sort | less +G'
