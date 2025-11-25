@@ -95,4 +95,9 @@ let mapleader=" "
 nnoremap <Leader>m :call <SID>ToggleMouse()<CR>
 xnoremap <Leader>m :<C-u>call <SID>ToggleMouse()<CR>
 
+"#########################################
+"### SPACE-TAB CONVERTS TABS TO SPACES ###
+"#########################################
 
+nnoremap <Leader><Tab> :retab<CR>:echo "Converted tabs to spaces!"<CR>
+xnoremap <Leader><Tab> :retab<CR>:echo "Converted tabs to spaces!"<CR>
