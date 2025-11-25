@@ -27,3 +27,6 @@ alias latr='ls -latr'
 
 # lt is ls -lt
 alias lt='ls -lt'
+
+# cd to git
+alias cdgit='cd ~/git/github.com/jakegiorlando'
