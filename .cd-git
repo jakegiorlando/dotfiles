@@ -1,22 +1,47 @@
+# ~/.cd-git
+
 __git_remote_behind_warn() {
-    local git_root branch upstream behind
+    [ -n "$GIT_PROMPT_ACTIVE" ] || return
+
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+
+    local git_root
     git_root=$(git rev-parse --show-toplevel 2>/dev/null) || return
 
-    branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) || return
+    local upstream
     upstream=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || return
 
-    local cache="/tmp/.git_warn_$(echo "$git_root:$branch" | sha1sum | cut -d' ' -f1)"
+    # Rate-limit fetch per repo
+    local ttl_file now ttl last
+    ttl_file="/tmp/.git_fetch_ttl_$(printf '%s' "$git_root" | sha1sum | cut -d' ' -f1)"
+    now=$(date +%s)
+    ttl=60
 
-    git fetch --quiet --no-tags 2>/dev/null || return
-    behind=$(git rev-list --count HEAD.."$upstream" 2>/dev/null || echo 0)
+    last=0
+    if [ -f "$ttl_file" ]; then
+        last=$(cat "$ttl_file" 2>/dev/null || echo 0)
+    fi
+
+    if [ $((now - last)) -ge "$ttl" ]; then
+        git fetch --quiet --no-tags 2>/dev/null || true
+        printf '%s' "$now" >"$ttl_file" 2>/dev/null || true
+    fi
+
+    # Get ahead/behind counts: "<ahead>\t<behind>"
+    local counts ahead behind
+    counts=$(git rev-list --left-right --count "HEAD...$upstream" 2>/dev/null) || return
+
+    ahead=${counts%%[[:space:]]*}
+    behind=${counts##*[[:space:]]}
+
+    case "$behind" in
+        ''|*[!0-9]*)
+            behind=0
+            ;;
+    esac
 
     if [ "$behind" -gt 0 ]; then
-        if [ ! -f "$cache" ]; then
-            echo "remote changes were made. please run: git pull"
-            touch "$cache"
-        fi
-    else
-        rm -f "$cache"
+        printf 'remote changes were made. please run: git pull\n' >&2
     fi
 }
 
