@@ -42,7 +42,7 @@ export VISUAL="vim"
 # export SYSTEMD_PAGER=
 
 # Git prompt
-[[ -f "${GIT_DIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]] && GIT_PROMPT_ONLY_IN_REPO=1 && . ${GIT_DIR}/magicmonty/bash-git-prompt/gitprompt.sh
+[[ -f "${GIT_DIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]] && GIT_PROMPT_ONLY_IN_REPO=1 && . ${GIT_DIR}/magicmonty/bash-git-prompt/gitprompt.sh && . ${GIT_DIR}/${GIT_USR}/dotfiles/.cd-git
 
 # GTK/QT themes
 export GTK_THEME=Adwaita:dark

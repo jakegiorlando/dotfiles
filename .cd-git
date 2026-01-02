@@ -1,0 +1,46 @@
+__git_remote_behind_warn() {
+    local git_root branch upstream behind
+    git_root=$(git rev-parse --show-toplevel 2>/dev/null) || return
+
+    branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) || return
+    upstream=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || return
+
+    local cache="/tmp/.git_warn_$(echo "$git_root:$branch" | sha1sum | cut -d' ' -f1)"
+
+    git fetch --quiet --no-tags 2>/dev/null || return
+    behind=$(git rev-list --count HEAD.."$upstream" 2>/dev/null || echo 0)
+
+    if [ "$behind" -gt 0 ]; then
+        if [ ! -f "$cache" ]; then
+            echo "remote changes were made. please run: git pull"
+            touch "$cache"
+        fi
+    else
+        rm -f "$cache"
+    fi
+}
+
+cd() {
+    if builtin cd "$@"; then
+        __git_remote_behind_warn
+        return 0
+    fi
+    return $?
+}
+
+pushd() {
+    if builtin pushd "$@"; then
+        __git_remote_behind_warn
+        return 0
+    fi
+    return $?
+}
+
+popd() {
+    if builtin popd "$@"; then
+        __git_remote_behind_warn
+        return 0
+    fi
+    return $?
+}
+
